@@ -1,2 +1,2 @@
 # enieproject
-Simple go program that allows you to copy the "ñ" letter. 
+Simple program made in Golang that allows you to copy the "ñ" letter. 
