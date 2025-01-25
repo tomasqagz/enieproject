@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/atotto/clipboard"
 	"github.com/getlantern/systray"
@@ -27,10 +28,18 @@ func copyLetter(caps bool) {
 }
 
 func main() {
+	var iconData []byte
+	var err error
+	iconData, err = os.ReadFile("enie.ico")
+	if err != nil {
+		panic(err)
+	}
 
 	systray.Run(func() {
 
 		systray.SetTitle("Copiar Ñ")
+
+		systray.SetIcon(iconData)
 		systray.SetTooltip("Haz clic para copiar 'ñ'")
 
 		mCopy := systray.AddMenuItem("Copiar ñ", "Copia la letra ñ al portapapeles")
